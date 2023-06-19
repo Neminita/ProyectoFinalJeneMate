@@ -108,14 +108,46 @@ def menu():
                         for j, asiento in enumerate(fila):
                             if asiento == eleccion:
                                 asientos[i][j] = "   X"
-                                break
-                            print(
-                                """
+                                break                
+                if eleccion >= 1 and eleccion <= 30:
+                    l_asiento.append(eleccion)
+                    print(
+                        """
+                ¿Quisiera confirmar su compra?
+                1.Si
+                2.No
+                """
+                    )
+                    confus = int(input())
+                    if confus == 1:
+                        UsuarioNormal()
+
+                    else:
+                        cont = 0
+                elif eleccion > 30 and eleccion <= 42:
+                    l_asiento.append(eleccion)
+                    print(
+                        """
+                ¿Quisiera confirmar su compra?
+                1.Si
+                2.No
+                """
+                    )
+                    confus = int(input())
+                    if confus == 1:
+                        UsuarioVip()
+                    else:
+                        cont = 0
+                else:
+                    print("El valor no se ha encontrado.")
+            elif OpMenu == 3:
+                print(
+                    """
                 ¿Quisiera Anular envío?
                 1.Si
                 2.No
                 """
-                            )
+                )
                 anulacion = int(input())
                 if anulacion == 1:
                     print("Su anulación ha sido exitosa!")
@@ -127,25 +159,23 @@ def menu():
 
                 else:
                     print("Se ha cancelado su anulación!")
+                    
             elif OpMenu == 4:
                 print("Modificación de datos. ")
-                nom = input("Porfavor ingrese su nombre: ")
+                nom = (input("Porfavor ingrese su nombre: "))
+                
                 if nom in l_nom:
                     eleccion = int(input("Porfavor ingrese su asiento: "))
-                    if (
-                        eleccion in l_asiento
-                    ):  # Verifica que la variable elección esté dentro de la lista de asientos.
+                    if eleccion in l_asiento: # Verifica que la variable elección esté dentro de la lista de asientos.
                         while True:
-                            print(
-                                """ 
+                            print(""" 
                                         Modificación de datos
                                 1) Modificar nombre.
                                 2) Modificar telefono.
                                 3) Listar datos.
                                 4) Salir.
                                     
-                                """
-                            )
+                                """)
                             op = int(input("Ingrese una opción valida: "))
 
                             if op == 1:
