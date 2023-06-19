@@ -7,6 +7,11 @@ ANormal = 78900
 AVip = 240000
 descuento = 0
 descuento2 = 0
+l_rut = []
+l_nom = []
+l_tel = []
+l_ban = []
+l_asiento = []
 
 asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(filas)]
 
@@ -46,8 +51,9 @@ def UsuarioNormal():
         or BancoUs == "BancoDuoc"
         or BancoUs == "BANCODUOC"
         or BancoUs == "bancoduoc"
-        ):
-            descuento = (ANormal) * 0.15
+    
+    ):
+        descuento = (ANormal) * 0.15
         print("El valor NORMAL de éste pasaje es:", (ANormal - descuento))
     else:
         descuento = 0
