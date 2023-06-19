@@ -18,6 +18,7 @@ asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(fil
 
 # Definicion de Funcion para crear el menú de asientos y sus arreglos
 def Masientos():
+
     for fila in asientos:
         print("|", end="")
         for asiento in fila:
@@ -61,6 +62,7 @@ def UsuarioNormal():
 
 # Datos de usuario para ingresar en Vip.
 def UsuarioVip():
+
     global l_rut, l_ban, l_nom, l_tel, l_asiento
     print("Ingrese sus datos correspondientes. ")
     global RutUs, NomUs, TelefUs, BancoUs
@@ -90,9 +92,11 @@ def UsuarioVip():
 
 
 def menu():
+
     while True:
         try:
             cont = 0
+
             print("Elija una opcion porfavor")
             print("1. Ver asientos disponibles.")
             print("2. Comprar asiento.")
@@ -218,7 +222,6 @@ def menu():
             elif OpMenu == 5:
                 print("Gracias por utilizar el programa.")
                 break
-
 
         except ValueError:
             print("INGRESE OPCIÓN VALIDA")
