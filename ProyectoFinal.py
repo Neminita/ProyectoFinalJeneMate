@@ -1,7 +1,6 @@
 print("---------------------------")
 print("Bienvenido a VuelosDuoc")
 print("---------------------------")
-
 filas = 6
 columnas = 7
 ANormal = 78900
@@ -14,6 +13,8 @@ l_tel = []
 l_ban = []
 l_asiento = []
 asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(filas)]
+
+
 # Definicion de Funcion para crear el menú de asientos y sus arreglos
 def Masientos():
     for fila in asientos:
@@ -30,7 +31,6 @@ def Masientos():
 
 
 def UsuarioNormal():
-
     global l_rut, l_ban, l_nom, l_tel, l_asiento
     print("Ingrese sus datos correspondientes. ")
     global RutUs, NomUs, TelefUs, BancoUs
@@ -49,7 +49,6 @@ def UsuarioNormal():
         or BancoUs == "BancoDuoc"
         or BancoUs == "BANCODUOC"
         or BancoUs == "bancoduoc"
-
     ):
         descuento = (ANormal) * 0.15
         print("El valor NORMAL de éste pasaje es:", (ANormal - descuento))
@@ -79,10 +78,36 @@ def UsuarioVip():
         or BancoUs == "BancoDuoc"
         or BancoUs == "BANCODUOC"
         or BancoUs == "bancoduoc"
-
     ):
         descuento = (AVip) * 0.15
         print("El valor VIP de éste pasaje es:", (AVip - descuento))
     else:
         descuento = 0
         print("El valor de éste pasaje es:", (ANormal))
+    # Primera interfaz de menú.
+
+
+def menu():
+    while True:
+        try:
+            cont = 0
+            print("Elija una opcion porfavor")
+            print("1. Ver asientos disponibles.")
+            print("2. Comprar asiento.")
+            print("3. Anular vuelo.")
+            print("4. Modificar datos.")
+            print("5. Salir.")
+            OpMenu = int(input())
+            if OpMenu == 1:
+                Masientos()
+            elif OpMenu == 2:
+                Masientos()
+                eleccion = int(input("Seleccione un asiento: "))
+                if eleccion in [asiento for fila in asientos for asiento in fila]:
+                    for i, fila in enumerate(asientos):
+                        for j, asiento in enumerate(fila):
+                            if asiento == eleccion:
+                                asientos[i][j] = "   X"
+                                break
+        except ValueError:
+            print("INGRESE OPCIÓN VALIDA")
