@@ -1,2 +1,2 @@
-from ProyectoFinal import *
+from Funciones import *
 menu()
