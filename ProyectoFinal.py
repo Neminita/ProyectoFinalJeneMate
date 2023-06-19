@@ -109,5 +109,37 @@ def menu():
                             if asiento == eleccion:
                                 asientos[i][j] = "   X"
                                 break
+                            
+                if eleccion >= 1 and eleccion <= 30:
+                                l_asiento.append(eleccion)
+                                print(
+                        """
+                ¿Quisiera confirmar su compra?
+                1.Si
+                2.No
+                """
+                    )
+                confus = int(input())
+                if confus == 1:
+                        UsuarioNormal()
+
+                else:
+                    cont = 0
+            elif eleccion > 30 and eleccion <= 42:
+                    l_asiento.append(eleccion)
+                    print(
+                        """
+                ¿Quisiera confirmar su compra?
+                1.Si
+                2.No
+                """
+                    )
+                    confus = int(input())
+                    if confus == 1:
+                        UsuarioVip()
+                    else:
+                        cont = 0
+            else:
+                print("El valor no se ha encontrado.")
         except ValueError:
             print("INGRESE OPCIÓN VALIDA")
