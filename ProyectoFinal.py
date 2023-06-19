@@ -12,6 +12,7 @@ l_nom = []
 l_tel = []
 l_ban = []
 l_asiento = []
+
 asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(filas)]
 
 
@@ -31,6 +32,7 @@ def Masientos():
 
 
 def UsuarioNormal():
+
     global l_rut, l_ban, l_nom, l_tel, l_asiento
     print("Ingrese sus datos correspondientes. ")
     global RutUs, NomUs, TelefUs, BancoUs
@@ -169,7 +171,7 @@ def menu():
                     if eleccion in l_asiento: # Verifica que la variable elección esté dentro de la lista de asientos.
                         while True:
                             print(""" 
-                                        Modificación de datos
+                                    Modificación de datos
                                 1) Modificar nombre.
                                 2) Modificar telefono.
                                 3) Listar datos.
@@ -203,38 +205,20 @@ def menu():
                                 print("Lista de numeros: ", l_tel)
                                 print("Lista de nombres: ", l_nom)
                                 print("Lista de bancos: ", l_ban)
-
-                            
-                if eleccion >= 1 and eleccion <= 30:
-                                l_asiento.append(eleccion)
-                                print(
-                        """
-                ¿Quisiera confirmar su compra?
-                1.Si
-                2.No
-                """
-                    )
-                confus = int(input())
-                if confus == 1:
-                        UsuarioNormal()
-
-                else:
-                    cont = 0
-            elif eleccion > 30 and eleccion <= 42:
-                    l_asiento.append(eleccion)
-                    print(
-                        """
-                ¿Quisiera confirmar su compra?
-                1.Si
-                2.No
-                """
-                    )
-                    confus = int(input())
-                    if confus == 1:
-                        UsuarioVip()
+                            elif op == 4:
+                                print("Ha salido correctamente del sub menú.")
+                                break
+                            else:
+                                print("Ingrese una opción valida.")
                     else:
-                        cont = 0
-            else:
-                print("El valor no se ha encontrado.")
+                        print("Ingrese un asiento valido.")
+                else:
+                    print("Ingrese un numero valido.")
+
+            elif OpMenu == 5:
+                print("Gracias por utilizar el programa.")
+                break
+
+
         except ValueError:
             print("INGRESE OPCIÓN VALIDA")
