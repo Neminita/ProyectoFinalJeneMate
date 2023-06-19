@@ -109,5 +109,67 @@ def menu():
                             if asiento == eleccion:
                                 asientos[i][j] = "   X"
                                 break
+                            print(
+                    """
+                ¿Quisiera Anular envío?
+                1.Si
+                2.No
+                """
+                )
+                anulacion = int(input())
+                if anulacion == 1:
+                    print("Su anulación ha sido exitosa!")
+                    l_nom.remove(NomUs)
+                    l_asiento.remove(asiento)
+                    l_ban.remove(BancoUs)
+                    l_rut.remove(RutUs)
+                    l_tel.remove(TelefUs)
+                    
+                else:
+                    print("Se ha cancelado su anulación!")      
+            elif OpMenu == 4:
+                print("Modificación de datos. ")
+                nom = (input("Porfavor ingrese su nombre: "))
+                if nom in l_nom:
+                    eleccion = int(input("Porfavor ingrese su asiento: "))
+                    if eleccion in l_asiento: # Verifica que la variable elección esté dentro de la lista de asientos.
+                        while True:
+                            print(""" 
+                                        Modificación de datos
+                                1) Modificar nombre.
+                                2) Modificar telefono.
+                                3) Listar datos.
+                                4) Salir.
+                                    
+                                """)
+                            op = int(input("Ingrese una opción valida: "))
+                            
+                            if op == 1:
+                                print("Lista de nombres: ",l_nom)
+                                nom1 = input("Ingrese nombre a modificar: ")
+                                if nom1 in l_nom:
+                                    l_nom.remove(nom1)
+                                    nom2 = input("Ingrese nombre nuevo: ")
+                                    l_nom.append(nom2)
+                                    print("Nombre modificado correctamente.")
+                                else:
+                                    print("Ingrese un nombre valido.")
+                            elif op == 2:
+                                print("Lista de telefonos: ",l_tel)
+                                tel1 = int(input("Ingrese telefono a modificar: "))
+                                if tel1 in l_tel:
+                                    l_tel.remove(tel1)
+                                    tel2 = int(input("Ingrese telefono nuevo: "))
+                                    l_tel.append(tel2)
+                                else:
+                                    print("Ingrese un telefono valido.")
+                            elif op == 3:
+                                print("Datos")
+                                print("Lista de asientos reservados: ",l_asiento)
+                                print("Lista de numeros: ",l_tel)
+                                print("Lista de nombres: ",l_nom)
+                                print("Lista de bancos: ",l_ban)
+
         except ValueError:
             print("INGRESE OPCIÓN VALIDA")
+
